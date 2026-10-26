@@ -1,0 +1,60 @@
+{
+  "curso": "⚽ GolPark · Python Full Stack · Módulo 1",
+  "fechaLimite": "2026-11-29T23:59:00-05:00",
+  "patronTest": "^(test\\(|def test_)",
+  "entregables": [
+    "maqueta/",
+    "frontend/",
+    "backend/",
+    "PROYECTO.md"
+  ],
+  "protegidos": [
+    "tests/",
+    "scripts/",
+    ".github/",
+    "fases/",
+    "package.json",
+    "package-lock.json",
+    "vitest.config.js",
+    "requirements-pruebas.txt",
+    "README.md"
+  ],
+  "ejercicios": [
+    {
+      "id": "F0",
+      "titulo": "Fase 0 · Maqueta",
+      "runner": "vitest",
+      "test": "tests/web/fase0-maqueta.test.js"
+    },
+    {
+      "id": "F1",
+      "titulo": "Fase 1 · React",
+      "runner": "vitest",
+      "test": "tests/web/fase1-react.test.jsx"
+    },
+    {
+      "id": "F2",
+      "titulo": "Fase 2 · Formulario",
+      "runner": "vitest",
+      "test": "tests/web/fase2-formulario.test.jsx"
+    },
+    {
+      "id": "F3-API",
+      "titulo": "Fase 3 · API FastAPI",
+      "runner": "pytest",
+      "test": "tests/api/test_fase3_api.py"
+    },
+    {
+      "id": "F3-WEB",
+      "titulo": "Fase 3 · Rutas y Axios",
+      "runner": "vitest",
+      "test": "tests/web/fase3-rutas.test.jsx"
+    },
+    {
+      "id": "F4",
+      "titulo": "Fase 4 · Profesional",
+      "runner": "vitest",
+      "test": "tests/web/fase4-profesional.test.jsx"
+    }
+  ]
+}
