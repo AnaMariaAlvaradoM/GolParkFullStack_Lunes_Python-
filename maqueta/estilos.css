@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background-color: #0d1b12;
+    color: #f1f5f2;
+  }
+  
+  .encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px;
+    background-color: #082914;
+    border-bottom: 3px solid #22c55e;
+    color: #ffffff;
+  }
+
+  .encabezado h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .encabezado p {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  #contador {
+    background-color: #22c55e;
+    color: #082914;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+  }
+  
+  main {
+    padding: 32px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  main h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    border-left: 4px solid #22c55e;
+    padding-left: 10px;
+  }
+  
+  .lista-turnos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .tarjeta {
+    width: 240px;
+    padding: 20px;
+    border: 1px solid #1c4b28;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #12281a, #0b1a10);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .tarjeta h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    color: #4ade80;
+  }
+
+  .tarjeta p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #d1d5db;
+  }
+  
+  .btn-reservar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #16a34a;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .btn-reservar:hover:not(:disabled) {
+    background-color: #22c55e;
+    transform: translateY(-1px);
+  }
+  
+  .btn-reservar:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .btn-reservar:disabled {
+    background-color: #374151;
+    color: #9ca3af;
+    border: 1px solid #4b5563;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  footer {
+    padding: 24px;
+    text-align: center;
+    color: #889988;
+    border-top: 1px solid #163620;
+    background-color: #06150c;
+    font-size: 0.9rem;
+  }
