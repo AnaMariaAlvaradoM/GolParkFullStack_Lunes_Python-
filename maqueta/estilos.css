@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #f4f4f8;
+  color: #1a1a1a;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+main {
+  padding: 24px;
+}
+
+.lista-clases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tarjeta {
+  width: 220px;
+  padding: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+}
+
+.btn-reservar {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e4572e;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-reservar:disabled {
+  background-color: #aaaaaa;
+  cursor: not-allowed;
+}
+
+footer {
+  padding: 16px 24px;
+  text-align: center;
+  color: #666666;
+}
