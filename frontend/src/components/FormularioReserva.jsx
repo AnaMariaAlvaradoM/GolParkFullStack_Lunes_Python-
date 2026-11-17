@@ -4,6 +4,7 @@ import { validarReserva } from '../utils/validaciones';
 export default function FormularioReserva({
   onReservar,
   deshabilitado = false,
+  error = '',
 }) {
   const [equipo, setEquipo] = useState('');
   const [celular, setCelular] = useState('');
@@ -59,6 +60,7 @@ export default function FormularioReserva({
         {deshabilitado ? 'Ocupado' : 'Reservar'}
       </button>
 
+      {error && <p role="alert">{error}</p>}
       {mensaje && <p>{mensaje}</p>}
     </form>
   );

@@ -1,28 +1,28 @@
-// frontend/src/App.jsx
+import { Route, Routes } from 'react-router';
 import Encabezado from './components/Encabezado';
-import ListaTurnos from './components/ListaTurnos';
 import PiePagina from './components/PiePagina';
-import { turnosIniciales } from './data/turnos';
+import Inicio from './pages/Inicio';
+import Turnos from './pages/Turnos';
+import DetalleTurno from './pages/DetalleTurno';
+import MisReservas from './pages/MisReservas';
+import NoEncontrada from './pages/NoEncontrada';
 
-function App() {
-  const handleReservar = (id) => {
-    console.log(`Se tocó el turno con id: ${id}`);
-  };
-
+export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
       <Encabezado />
 
       <main className="flex-1 container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">
-          Turnos Disponibles
-        </h2>
-        <ListaTurnos turnos={turnosIniciales} onReservar={handleReservar} />
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/turnos" element={<Turnos />} />
+          <Route path="/turnos/:id" element={<DetalleTurno />} />
+          <Route path="/mis-reservas" element={<MisReservas />} />
+          <Route path="*" element={<NoEncontrada />} />
+        </Routes>
       </main>
 
       <PiePagina />
     </div>
   );
 }
-
-export default App;
