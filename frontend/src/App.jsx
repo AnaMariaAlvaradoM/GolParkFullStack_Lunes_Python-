@@ -2,17 +2,28 @@ import { useState } from "react";
 import Encabezado from "./components/Encabezado.jsx";
 import PiePagina from "./components/PiePagina.jsx";
 import ListaTurnos from "./components/ListaTurnos.jsx";
+import FormularioReserva from "./components/FormularioReserva.jsx";
+import MisReservas from "./components/ListaReservas.jsx";
 import { turnos } from "./data/turnos.js";
 
 function App() {
-  function reservar(id) {
-    const turno = turnos.find((c) => c.id === id);
-    if (turno.disponible === false) {
-      console.log(`${turno.hora} esta ocupado`)
-      return;
-    }
-    turno.disponible = false;
-    console.log(`Reservaste ${turno.cancha} a las ${turno.hora}.`);
+  const [reservas, setReservas] = useState([])
+  const [idElegida, setIdElegida] = useState(null)
+  const [listaTurnos, setListaTurnos] = useState(turnos)
+
+  const turnoElegido = listaTurnos.find((turno) => turno.id === idElegida)
+
+  function confirmarReserva(datos) {
+    setListaTurnos(
+      listaTurnos.map((turno) =>
+        turno.id === idElegida ? { ...turno, disponible: turno.disponible = false} : turno,
+      ),
+    );
+    setReservas([
+      ...reservas,
+      { id: reservas.length + 1, turno: turnoElegido.cancha, hora: turnoElegido.hora, ...datos},
+    ]);
+    setIdElegida(null);
   }
 
   return (
@@ -21,8 +32,12 @@ function App() {
       <main className="grid gap-6 p-6 lg:grid-cols-[1fr_320px]">
         <div>
           <h2 className="mb-4 text-xl font-bold">Clases de hoy</h2>
-          <ListaTurnos turnos={turnos} onReservar={reservar} />
+          <ListaTurnos turnos={listaTurnos} onReservar={setIdElegida} />
         </div>
+        <aside className="flex flex-col gap-6">
+          <FormularioReserva turno={turnoElegido} onReservar={confirmarReserva} />
+          <MisReservas reservas={reservas} />
+        </aside>
       </main>
       <PiePagina />
     </div>
