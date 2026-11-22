@@ -80,7 +80,7 @@ function FormularioReserva({ turno, onReservar, deshabilitado = false }) {
       <button
         type="submit"
         disabled={deshabilitado}
-        className="mt-4 w-full cursor-pointer rounded-md bg-orange-600 py-2 font-bold text-white hover:bg-orange-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+        className="mt-4 w-full cursor-pointer rounded-md bg-green-600 py-2 font-bold text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-slate-400"
       >
         {deshabilitado ? "Ocupado" : "Reservar"}
       </button>
