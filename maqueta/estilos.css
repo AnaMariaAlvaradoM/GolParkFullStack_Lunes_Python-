@@ -1,0 +1,105 @@
+:root {
+  --verde: #1b8a3e;
+  --verde-oscuro: #12602b;
+  --gris: #6b7280;
+  --rojo: #b91c1c;
+  --fondo: #f3f7f4;
+  --blanco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: #1f2937;
+}
+
+.encabezado {
+  background: var(--verde);
+  color: var(--blanco);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.encabezado h1 {
+  margin: 0 0 0.5rem;
+}
+
+.reservas {
+  font-weight: bold;
+}
+
+#contador {
+  display: inline-block;
+  min-width: 2rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--blanco);
+  color: var(--verde-oscuro);
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+#lista-turnos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.turno {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-top: 6px solid var(--verde);
+}
+
+.turno--ocupado {
+  border-top-color: var(--rojo);
+  opacity: 0.75;
+}
+
+.turno h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.turno p {
+  margin: 0.25rem 0;
+}
+
+.btn-reservar {
+  margin-top: 0.75rem;
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--verde);
+  color: var(--blanco);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-reservar:hover:not(:disabled) {
+  background: var(--verde-oscuro);
+}
+
+.btn-reservar:disabled {
+  background: var(--gris);
+  cursor: not-allowed;
+}
+
+.pie {
+  text-align: center;
+  color: var(--gris);
+  padding: 1rem;
+}
