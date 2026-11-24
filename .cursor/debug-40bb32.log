@@ -1,0 +1,1 @@
+{"sessionId":"40bb32","runId":"pre-fix","hypothesisId":"A","location":"index.html:error","message":"window error","data":{"message":"Uncaught SyntaxError: Identifier 'ListaTurnos' has already been declared","filename":"http://localhost:5173/src/components/ListaTurnos.jsx?t=1795474950260","lineno":6,"colno":1},"timestamp":1795475039217}
