@@ -111,6 +111,7 @@ test("ListaReservas muestra un mensaje si no hay reservas y una línea por reser
   ];
   render(<MemoryRouter><ListaReservas reservas={reservas} /></MemoryRouter>);
   expect(screen.queryAllByRole("listitem").length, "Debería haber un <li> por cada reserva (2)").toBe(2);
+  expect(screen.queryAllByRole("article").length, "Cada reserva debería mostrarse como una tarjeta").toBe(2);
   expect(screen.queryByText("Cancha 2 · 6:00 p. m. · Real Barrio"), 'Cada <li> debería decir "cancha · hora · equipo"').not.toBeNull();
 });
 

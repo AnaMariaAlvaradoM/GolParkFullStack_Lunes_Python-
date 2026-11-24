@@ -1,13 +1,13 @@
-import axios from 'axios';
+import { cliente } from "../api/cliente.js";
 
-const API = 'http://localhost:8000';
+const API = cliente;
 
 export async function crearReserva(reserva) {
-  const respuesta = await axios.post(`${API}/reservas`, reserva);
+  const respuesta = await API.post(`/reservas`, reserva);
   return respuesta.data;
 }
 
 export async function listarReservas() {
-  const respuesta = await axios.get(`${API}/reservas`);
+  const respuesta = await API.get(`/reservas`);
   return respuesta.data;
 }

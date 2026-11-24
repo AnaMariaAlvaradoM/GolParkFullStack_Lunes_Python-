@@ -36,32 +36,49 @@ export default function FormularioReserva({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form
+      onSubmit={handleSubmit}
+      className="grid max-w-xl gap-5 rounded-2xl border border-emerald-900/10 bg-white p-6 shadow-lg shadow-emerald-950/5 sm:p-8"
+    >
+      <label className="grid gap-2 text-sm font-semibold text-slate-700">
         Nombre del equipo
         <input
+          className="rounded-xl border border-slate-300 bg-stone-50 px-4 py-3 text-base text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10"
           value={equipo}
           onChange={(evento) => setEquipo(evento.target.value)}
         />
-        {errores.equipo && <p>{errores.equipo}</p>}
+        {errores.equipo && <p className="text-sm font-medium text-red-700">{errores.equipo}</p>}
       </label>
 
-      <label>
+      <label className="grid gap-2 text-sm font-semibold text-slate-700">
         Celular
         <input
           type="tel"
+          className="rounded-xl border border-slate-300 bg-stone-50 px-4 py-3 text-base text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10"
           value={celular}
           onChange={(evento) => setCelular(evento.target.value)}
         />
-        {errores.celular && <p>{errores.celular}</p>}
+        {errores.celular && <p className="text-sm font-medium text-red-700">{errores.celular}</p>}
       </label>
 
-      <button type="submit" disabled={deshabilitado}>
+      <button
+        type="submit"
+        disabled={deshabilitado}
+        className="rounded-xl bg-emerald-700 px-5 py-3 font-bold text-white shadow-md shadow-emerald-900/15 transition hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-emerald-500/25 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none"
+      >
         {deshabilitado ? 'Ocupado' : 'Reservar'}
       </button>
 
-      {error && <p role="alert">{error}</p>}
-      {mensaje && <p>{mensaje}</p>}
+      {error && (
+        <p role="alert" className="rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+          {error}
+        </p>
+      )}
+      {mensaje && (
+        <p className="rounded-lg bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+          {mensaje}
+        </p>
+      )}
     </form>
   );
 }
