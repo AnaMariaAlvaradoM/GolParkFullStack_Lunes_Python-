@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f6f7f5;
+    color: #1f2a24;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    background: #e1f5ee;
+    border-bottom: 1px solid #5dcaa5;
+    color: #085041;
+}
+
+.encabezado h1 {
+    margin: 0;
+}
+
+.contador {
+    background: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+main {
+    padding: 24px 32px;
+}
+
+#lista-turnos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.tarjeta {
+    background: white;
+    border: 1px solid #dde3df;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.tarjeta h3 {
+    margin: 0 0 8px;
+}
+
+.tarjeta p {
+    margin: 4px 0;
+    color: #55625a;
+}
+
+.btn-reservar {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1d9e75;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-reservar:disabled {
+    background: #e3e6e4;
+    color: #8a948e;
+    cursor: not-allowed;
+}
