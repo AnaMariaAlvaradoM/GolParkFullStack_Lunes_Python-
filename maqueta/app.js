@@ -9,12 +9,11 @@ function renderizar() {
     .map(
       (turno) => `
         <article class="tarjeta">
-          <h3>${turno.nombre}</h3>
-          <p>Costo: ${turno.precio}</p>
+          <h3>${turno.cancha}</h3>
+          <p>Precio: $${turno.precio.toLocaleString("es-CO")}</p>
           <p>Hora: ${turno.hora}</p>
-          <p>Cupos: ${turno.cupos}</p>
-          <button class="btn-reservar" data-id="${turno.id}" ${turno.cupos === 0 ? "disabled" : ""}>
-            ${turno.cupos === 0 ? "Ocupado" : "Libre"}
+          <button class="btn-reservar" data-id="${turno.id}" ${turno.disponible ? "" : "disabled"}>
+            ${turno.disponible ? "Reservar" : "Ocupado"}
           </button>
         </article>
       `
@@ -30,8 +29,8 @@ function renderizar() {
 
 function reservar(id) {
   const turno = turnos.find((t) => t.id === id);
-  if (turno.cupos === 0) return;
-  turno.cupos -= 1;
+  if (!turno || !turno.disponible) return;
+  turno.disponible = false;
   misReservas += 1;
   renderizar();
 }

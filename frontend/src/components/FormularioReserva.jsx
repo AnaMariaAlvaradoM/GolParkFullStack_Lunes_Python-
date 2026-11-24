@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { validarReserva } from "../utils/validaciones.js";
 
-function FormularioReserva({ turno, onConfirmar, onReservar, deshabilitado = false, bloqueado = false }) {
+function FormularioReserva({ turno, onConfirmar, onReservar, deshabilitado = false }) {
     const [equipo, setEquipo] = useState("");
     const [celular, setCelular] = useState("");
     const [errores, setErrores] = useState({});
@@ -16,11 +16,13 @@ function FormularioReserva({ turno, onConfirmar, onReservar, deshabilitado = fal
         }
 
         const reservar = onReservar ?? onConfirmar;
+        if (!reservar) {
+            return;
+        }
         const resultado = await reservar({ equipo: equipo.trim(), celular: celular.trim() });
         if (resultado === false) {
             return;
         }
-
         setMensaje("¡Turno reservado!");
         setEquipo("");
         setCelular("");
@@ -58,10 +60,10 @@ function FormularioReserva({ turno, onConfirmar, onReservar, deshabilitado = fal
 
         <button
             type="submit"
-            disabled={deshabilitado || bloqueado}
+            disabled={deshabilitado || turno?.disponible === false}
             className="mt-4 w-full cursor-pointer rounded-md bg-green-600 py-2 font-bold text-white hover:bg-orange-700 disabled:cursor-not-allowed disabled:bg-slate-400"
         >
-          {deshabilitado ? "Ocupado" : "Reservar"}
+          {deshabilitado || turno?.disponible === false ? "Ocupado" : "Reservar"}
         </button>
       </form>
     );
