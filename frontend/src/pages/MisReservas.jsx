@@ -20,20 +20,16 @@ function MisReservas() {
   }, []);
 
   if (error) {
-    return <p role="alert" className="surface-card mx-auto max-w-2xl p-6 text-center font-semibold text-red-700">{error}</p>;
+    return <p className="text-center font-bold text-red-600">{error}</p>;
   }
 
   if (reservas === null) {
-    return <p className="surface-card mx-auto max-w-2xl animate-pulse p-6 text-center text-[#6b7570]">Cargando reservas...</p>;
+    return <p className="text-center text-[#6b7570]">Cargando reservas...</p>;
   }
 
   return (
-    <section className="mx-auto max-w-3xl">
-      <div className="mb-7">
-        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#198650]">Tu actividad</p>
-        <h2 className="font-display text-4xl font-bold tracking-tight text-[#183b2a]">Mis reservas</h2>
-        <p className="mt-2 text-[#77847a]">Aquí tienes los próximos partidos de tu equipo.</p>
-      </div>
+    <section className="mx-auto max-w-xl">
+      <h2 className="mb-4 text-center text-2xl font-bold">Mis reservas</h2>
       <ListaReservas reservas={reservas} />
     </section>
   );

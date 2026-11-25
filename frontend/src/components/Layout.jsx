@@ -4,9 +4,9 @@ import PiePagina from "./PiePagina.jsx";
 
 function Layout() {
   return (
-    <div className="flex min-h-screen flex-col text-[#17231d]">
+    <div className="flex min-h-screen flex-col bg-[#f1f5f2] text-[#1f2a24]">
       <Encabezado />
-      <main className="mx-auto w-full max-w-7xl flex-1 px-5 py-8 sm:px-8 sm:py-12">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
         <Outlet />
       </main>
       <PiePagina />
