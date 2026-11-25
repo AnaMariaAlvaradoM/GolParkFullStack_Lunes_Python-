@@ -1,20 +1,28 @@
 function ListaReservas({ reservas }) {
-    return (
-      <section className="rounded-xl bg-white p-5 shadow-md">
-        <h2 className="mb-3 text-xl font-bold text-[#146c43]">Mis reservas ({reservas.length})</h2>
-        {reservas.length === 0 ? (
-          <p className="text-[#6b7570]">Aún no tienes reservas.</p>
-        ) : (
-          <ul className="flex flex-col gap-2">
-            {reservas.map((reserva) => (
-              <li key={reserva.id} className="rounded-lg border-l-4 border-[#2fb36d] bg-[#f1f5f2] px-3 py-2">
-                {reserva.cancha} · {reserva.hora} · {reserva.equipo}
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-    );
-  }
-  
-  export default ListaReservas;
+  return (
+    <section className="surface-card p-5 sm:p-7">
+      <div className="mb-5 flex items-center justify-between border-b border-[#edf0ed] pb-4">
+        <h2 className="font-display text-xl font-bold text-[#183b2a]">Mis reservas ({reservas.length})</h2>
+        <span aria-hidden="true" className="grid size-10 place-items-center rounded-xl bg-[#edf6e9] text-lg text-[#198650]">⚽</span>
+      </div>
+      {reservas.length === 0 ? (
+        <div className="rounded-2xl bg-[#f6f8f5] px-5 py-9 text-center">
+          <span aria-hidden="true" className="mx-auto mb-3 grid size-12 place-items-center rounded-2xl bg-white text-xl shadow-sm">⚽</span>
+          <p className="font-semibold text-[#34463a]">Aún no tienes reservas.</p>
+          <p className="mt-1 text-sm text-[#7b887e]">Cuando reserves un turno, lo encontrarás aquí.</p>
+        </div>
+      ) : (
+        <ul className="flex flex-col gap-3">
+          {reservas.map((reserva) => (
+            <li key={reserva.id} className="flex items-center gap-4 rounded-2xl border border-[#e8eee8] bg-[#fbfcfb] p-4">
+              <span aria-hidden="true" className="grid size-11 shrink-0 place-items-center rounded-xl bg-[#e9f5e8] text-[#198650]">⚽</span>
+              <span className="font-semibold text-[#34463a]">{reserva.cancha} · {reserva.hora} · {reserva.equipo}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
+
+export default ListaReservas;

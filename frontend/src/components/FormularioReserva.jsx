@@ -26,42 +26,44 @@ function FormularioReserva({ onReservar, deshabilitado = false }) {
   }
 
   return (
-    <form onSubmit={enviar} noValidate className="flex flex-col gap-4">
+    <form onSubmit={enviar} noValidate className="flex flex-col gap-5">
       {mensaje && (
-        <p className="rounded-lg bg-[#e3f5eb] p-3 text-center font-semibold text-[#146c43]">{mensaje}</p>
+        <p role="status" className="rounded-xl border border-[#cce8d4] bg-[#edf8ef] p-3 text-center font-semibold text-[#146c43]">{mensaje}</p>
       )}
 
       <div>
-        <label className="flex flex-col gap-1 font-semibold">
+        <label className="flex flex-col gap-1.5 font-semibold text-[#34463a]">
           Nombre del equipo
           <input
             type="text"
             value={equipo}
             onChange={(evento) => setEquipo(evento.target.value)}
-            className="rounded-lg border border-[#c7cfcb] px-3 py-2 font-normal focus:border-[#2fb36d] focus:outline-none"
+            className="field-control mt-1 font-normal"
+            placeholder="Ej. Los del barrio"
           />
         </label>
-        {errores.equipo && <p className="mt-1 text-sm text-red-600">{errores.equipo}</p>}
+        {errores.equipo && <p className="mt-1.5 text-sm text-red-600">{errores.equipo}</p>}
       </div>
 
       <div>
-        <label className="flex flex-col gap-1 font-semibold">
+        <label className="flex flex-col gap-1.5 font-semibold text-[#34463a]">
           Celular
           <input
             type="tel"
             inputMode="numeric"
             value={celular}
             onChange={(evento) => setCelular(evento.target.value)}
-            className="rounded-lg border border-[#c7cfcb] px-3 py-2 font-normal focus:border-[#2fb36d] focus:outline-none"
+            className="field-control mt-1 font-normal"
+            placeholder="Tu número de contacto"
           />
         </label>
-        {errores.celular && <p className="mt-1 text-sm text-red-600">{errores.celular}</p>}
+        {errores.celular && <p className="mt-1.5 text-sm text-red-600">{errores.celular}</p>}
       </div>
 
       <button
         type="submit"
         disabled={deshabilitado}
-        className="cursor-pointer rounded-lg bg-[#2fb36d] p-3 font-semibold text-white transition-colors hover:bg-[#146c43] disabled:cursor-not-allowed disabled:bg-[#c7cfcb] disabled:text-[#5c6661]"
+        className="mt-1 cursor-pointer rounded-xl bg-[#198650] p-3.5 font-bold text-white shadow-[0_8px_20px_rgba(25,134,80,0.16)] transition hover:bg-[#126b3f] disabled:cursor-not-allowed disabled:bg-[#e8ece8] disabled:text-[#5c6661] disabled:shadow-none"
       >
         {deshabilitado ? "Ocupado" : "Reservar"}
       </button>
