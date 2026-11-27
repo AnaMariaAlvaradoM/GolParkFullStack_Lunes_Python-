@@ -23,7 +23,6 @@ function Encabezado() {
   return (
     <header className="bg-green-950 px-6 py-5 text-white shadow-lg">
       <div className="mx-auto flex max-w-6xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-
         <div>
           <h1 className="text-3xl font-extrabold tracking-wide">
             <Link to="/" className="transition-colors hover:text-green-300">
@@ -42,9 +41,7 @@ function Encabezado() {
             end
             className={({ isActive }) =>
               `rounded-lg px-4 py-2 transition-colors ${
-                isActive
-                  ? "bg-green-800 text-white"
-                  : "hover:bg-green-800"
+                isActive ? "bg-green-800 text-white" : "hover:bg-green-800"
               }`
             }
           >
@@ -55,9 +52,7 @@ function Encabezado() {
             to="/turnos"
             className={({ isActive }) =>
               `rounded-lg px-4 py-2 transition-colors ${
-                isActive
-                  ? "bg-green-800 text-white"
-                  : "hover:bg-green-800"
+                isActive ? "bg-green-800 text-white" : "hover:bg-green-800"
               }`
             }
           >
@@ -68,13 +63,22 @@ function Encabezado() {
             to="/mis-reservas"
             className={({ isActive }) =>
               `rounded-lg px-4 py-2 transition-colors ${
-                isActive
-                  ? "bg-green-800 text-white"
-                  : "hover:bg-green-800"
+                isActive ? "bg-green-800 text-white" : "hover:bg-green-800"
               }`
             }
           >
-            Mis reservas ({totalReservas})
+            Mis reservas
+          </NavLink>
+
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              `rounded-lg px-4 py-2 transition-colors ${
+                isActive ? "bg-green-800 text-white" : "hover:bg-green-800"
+              }`
+            }
+          >
+            Ingresar
           </NavLink>
         </nav>
       </div>

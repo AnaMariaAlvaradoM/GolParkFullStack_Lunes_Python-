@@ -1,10 +1,12 @@
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
+
 import FormularioReserva from "../components/FormularioReserva.jsx";
 import { obtenerTurno } from "../services/turnosService.js";
 import { crearReserva } from "../services/reservasService.js";
 import { formatearPrecio } from "../utils/formato.js";
+import { mensajeDeError } from "../utils/errores.js";
 
 function DetalleTurno() {
   const { id } = useParams();
@@ -19,14 +21,8 @@ function DetalleTurno() {
       try {
         const datos = await obtenerTurno(id);
         setTurno(datos);
-      } catch (falla) {
-        if (falla.response?.status === 404) {
-          setError("Ese turno no existe.");
-        } else {
-          setError(
-            "No pudimos conectar con el servidor. Intenta más tarde."
-          );
-        }
+      } catch (error) {
+        setError(mensajeDeError(error));
       }
     }
 
@@ -42,17 +38,8 @@ function DetalleTurno() {
 
       navigate("/mis-reservas");
       return true;
-    } catch (falla) {
-      if (falla.response?.status === 404) {
-        setErrorReserva("Ese turno no existe.");
-      } else if (falla.response?.status === 409) {
-        setErrorReserva(falla.response.data.detail);
-      } else {
-        setErrorReserva(
-          "No pudimos conectar con el servidor. Intenta más tarde."
-        );
-      }
-
+    } catch (error) {
+      setErrorReserva(mensajeDeError(error));
       return false;
     }
   }
@@ -66,7 +53,7 @@ function DetalleTurno() {
   }
 
   return (
-    <section className="max-w-xl">
+    <section className="mx-auto max-w-6xl py-6">
       <Link
         to="/turnos"
         className="text-sm font-bold text-green-700 underline hover:text-green-900"
