@@ -1,6 +1,6 @@
 export default function ListaReservas({ reservas = [] }) {
   if (reservas.length === 0) {
-    return <p>No tienes reservas todavía.</p>;
+    return <p>Aún no tienes reservas.</p>;
   }
 
   return (
