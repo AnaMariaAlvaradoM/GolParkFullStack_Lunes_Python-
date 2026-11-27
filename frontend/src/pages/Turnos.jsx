@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ListaTurnos from "../components/ListaTurnos.jsx";
 import { listarTurnos } from "../services/turnosService.js";
+import { mensajeDeError } from "../utils/errores.js";
 
 function Turnos() {
     const [turnos, setTurnos] = useState(null);
@@ -11,8 +12,8 @@ function Turnos() {
             try {
                 const datos = await listarTurnos();
                 setTurnos(datos);
-            } catch {
-                setError("No pudimos conectar con el servidor. Intenta más tarde.");
+            } catch (falla) {
+                setError(mensajeDeError(falla));
             }
         }
         cargarTurnos();

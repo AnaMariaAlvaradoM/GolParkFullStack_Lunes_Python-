@@ -1,18 +1,11 @@
-import axios from "axios";
-
-const URL_API = "http://localhost:8000";
+import { cliente } from "../api/cliente.js";
 
 export async function listarTurnos() {
-    const respuesta = await axios.get(`${URL_API}/turnos`);
+    const respuesta = await cliente.get("/turnos");
     return respuesta.data;
 }
 
 export async function obtenerTurno(id) {
-    const respuesta = await axios.get(`${URL_API}/turnos/${id}`);
-    return respuesta.data;
-}
-
-export async function obtenerTurnoPorId(id) {
-    const respuesta = await axios.get(`${URL_API}/turnos/${id}`);
+    const respuesta = await cliente.get(`/turnos/${id}`);
     return respuesta.data;
 }

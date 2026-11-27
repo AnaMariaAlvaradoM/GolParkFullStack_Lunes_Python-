@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from datos import buscar_turno_por_hora, turnos
+from datos import buscar_turno_por_id, turnos
 from modelos import Turno
 
 router = APIRouter(prefix="/turnos", tags=["Turnos"])
@@ -8,9 +8,9 @@ router = APIRouter(prefix="/turnos", tags=["Turnos"])
 def obtener_turnos():
     return turnos
 
-@router.get("/{hora}", response_model=Turno)
-def obtener_turno_por_hora(hora: str):
-    turno = buscar_turno_por_hora(hora)
+@router.get("/{turno_id}", response_model=Turno)
+def obtener_turno_por_id(turno_id: int):
+    turno = buscar_turno_por_id(turno_id)
     if turno is None:
-        raise HTTPException(status_code=404, detail="Turno no encontrado")
+        raise HTTPException(status_code=404, detail="Ese turno no existe.")
     return turno

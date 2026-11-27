@@ -8,13 +8,16 @@ class Turno(BaseModel):
     disponible: bool
 
 class ReservaCrear(BaseModel):
-    id: int
-    equipo: str = Field( min_length=3, max_length=15)
-    telefono: str = Field( min_length=10, max_length=10)
-    hora: str
+    turno_id: int
+    equipo: str = Field(min_length=3, max_length=15)
+    celular: str = Field(pattern=r"^3[0-9]{9}$")
 
 class Reserva(BaseModel):
     id: int
-    equipo: str = Field( min_length=3, max_length=15)
-    telefono: str = Field( min_length=10, max_length=10)
-    turno: Turno
+    turno_id: int
+    equipo: str 
+    celular: str
+    cancha: str
+    hora: str
+     
+    

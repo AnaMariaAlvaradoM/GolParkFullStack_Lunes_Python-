@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ListaReservas from "../components/ListaReservas.jsx";
 import { listarReservas } from "../services/reservasService.js";
+import { mensajeDeError } from "../utils/errores.js";
 
 function MisReservas() {
     const [reservas, setReservas] = useState(null);
@@ -9,9 +10,10 @@ function MisReservas() {
     useEffect(() => {
         async function cargarReservas() {
             try {
-                setReservas(await listarReservas());
-            } catch {
-                setError("No pudimos conectar con el servidor. Intenta más tarde.");
+                const datos = await listarReservas();
+                setReservas(datos);
+            } catch(falla) {
+                setError(mensajeDeError(falla));
             }
         }
 

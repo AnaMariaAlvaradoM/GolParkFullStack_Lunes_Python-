@@ -9,8 +9,8 @@ turnos = [
 
 reservas = []
 
-def buscar_turno_por_hora(turno_hora):
+def buscar_turno_por_id(turno_id: int):
     for turno in turnos:
-        if turno["hora"] == turno_hora:
+        if turno["id"] == turno_id:
             return turno
     return None
